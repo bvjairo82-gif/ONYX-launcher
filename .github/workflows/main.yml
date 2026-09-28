@@ -23,8 +23,13 @@ jobs:
         with:
           channel: 'stable'
 
-      - name: Descargar dependencias
-        run: cd flutter_onyx_launcher && flutter pub get
+      - name: Magia en la nube (Reparar y convertir en Launcher)
+        run: |
+          cd flutter_onyx_launcher
+          rm -rf android
+          flutter create .
+          sed -i 's|android.intent.category.LAUNCHER|android.intent.category.HOME" />\n                <category android:name="android.intent.category.DEFAULT|g' android/app/src/main/AndroidManifest.xml
+          flutter pub get
 
       - name: Construir APK
         run: cd flutter_onyx_launcher && flutter build apk
