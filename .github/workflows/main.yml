@@ -27,12 +27,12 @@ jobs:
         run: |
           cd flutter_onyx_launcher
           rm -rf android
-          flutter create .
+          flutter create --platforms=android .
           sed -i 's|android.intent.category.LAUNCHER|android.intent.category.HOME" />\n                <category android:name="android.intent.category.DEFAULT|g' android/app/src/main/AndroidManifest.xml
-          sed -i 's/compileSdk = flutter.compileSdkVersion/compileSdk = 36/g' android/app/build.gradle.kts || true
-          sed -i 's/compileSdk flutter.compileSdkVersion/compileSdk 36/g' android/app/build.gradle.kts || true
-          sed -i 's/compileSdk = flutter.compileSdkVersion/compileSdk = 36/g' android/app/build.gradle || true
-          sed -i 's/compileSdk flutter.compileSdkVersion/compileSdk 36/g' android/app/build.gradle || true
+          sed -i 's/flutter\.compileSdkVersion/34/g' android/app/build.gradle || true
+          sed -i 's/flutter\.compileSdkVersion/34/g' android/app/build.gradle.kts || true
+          sed -i 's/compileSdk = .*/compileSdk = 34/g' android/app/build.gradle.kts || true
+          sed -i 's/compileSdk .*/compileSdk 34/g' android/app/build.gradle || true
           flutter pub get
 
       - name: Construir APK
