@@ -1,0 +1,6 @@
+{
+  "name": "Onyx Launcher - Minimalist OLED Android Launcher",
+  "description": "Lanzador de aplicaciones Android ultra minimalista con negro puro OLED, anillo de notificaciones para cámara punch-hole, widgets reconfigurables y cajón de apps interactivo.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

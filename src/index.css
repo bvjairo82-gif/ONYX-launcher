@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+  
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+  }
+}
+
+/* Animations for Punch-Hole Camera Notification Ring */
+@keyframes ringPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.85;
+    box-shadow: 0 0 8px currentColor, inset 0 0 4px currentColor;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 1;
+    box-shadow: 0 0 20px currentColor, 0 0 35px currentColor, inset 0 0 8px currentColor;
+  }
+}
+
+@keyframes ringSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ringBreathing {
+  0%, 100% {
+    opacity: 0.3;
+    box-shadow: 0 0 4px currentColor;
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 16px currentColor, 0 0 28px currentColor;
+  }
+}
+
+@keyframes ringWave {
+  0% {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+@keyframes ringDraw {
+  0% {
+    stroke-dashoffset: 100;
+    transform: rotate(-90deg) scale(0.9);
+    opacity: 0.5;
+  }
+  50% {
+    stroke-dashoffset: 0;
+    transform: rotate(90deg) scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 100;
+    transform: rotate(270deg) scale(0.9);
+    opacity: 0.5;
+  }
+}
+
+.animate-ring-pulse {
+  animation: ringPulse 1.4s ease-in-out infinite;
+}
+
+.animate-ring-spin {
+  animation: ringSpin 2s linear infinite;
+}
+
+.animate-ring-breathing {
+  animation: ringBreathing 2.4s ease-in-out infinite;
+}
+
+.animate-ring-wave {
+  animation: ringWave 1.6s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+.animate-ring-draw {
+  animation: ringDraw 2s ease-in-out infinite;
+}
+
+/* Font family utilities */
+.font-launcher-sans {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+.font-launcher-mono {
+  font-family: 'Space Mono', 'JetBrains Mono', monospace;
+}
+.font-launcher-display {
+  font-family: 'Syne', sans-serif;
+}
+
+/* Hide scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
